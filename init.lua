@@ -254,10 +254,6 @@ rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-<<<<<<< HEAD
-  -- NOTE: Plugins can be added via a link or github org/name. To run setup automatically, use `opts = {}`
-  { 'NMAC427/guess-indent.nvim', opts = {} },
-=======
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   {
     'NMAC427/guess-indent.nvim',
@@ -272,7 +268,6 @@ require('lazy').setup({
   --
   -- Use `opts = {}` to automatically pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
   --
->>>>>>> 2341a4a (My custom changes for php relative line number and working out the kinks)
 
   -- Alternatively, use `config = function() ... end` for full control over the configuration.
   -- If you prefer to call `setup` explicitly, use:
@@ -627,8 +622,6 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
-<<<<<<< HEAD
-=======
         --
         ts_ls = {
           filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'jsx', 'tsx' },
@@ -647,7 +640,6 @@ require('lazy').setup({
             less = { validate = true },
           },
         },
->>>>>>> 2341a4a (My custom changes for php relative line number and working out the kinks)
 
         stylua = {}, -- Used to format Lua code
 
@@ -690,13 +682,9 @@ require('lazy').setup({
       -- You can press `g?` for help in this menu.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-<<<<<<< HEAD
-        -- You can add other tools here that you want Mason to install
-=======
         'stylua', -- Used to format Lua code
         'php-cs-fixer',
         'prettier',
->>>>>>> 2341a4a (My custom changes for php relative line number and working out the kinks)
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -927,56 +915,11 @@ require('lazy').setup({
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
-    lazy = false,
     build = ':TSUpdate',
-<<<<<<< HEAD
-    branch = 'main',
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
-    config = function()
-      local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
-      require('nvim-treesitter').install(parsers)
-      vim.api.nvim_create_autocmd('FileType', {
-        callback = function(args)
-          local buf, filetype = args.buf, args.match
-
-          local language = vim.treesitter.language.get_lang(filetype)
-          if not language then return end
-
-          -- check if parser exists and load it
-          if not vim.treesitter.language.add(language) then return end
-          -- enables syntax highlighting and other treesitter features
-          vim.treesitter.start(buf, language)
-
-          -- enables treesitter based folds
-          -- for more info on folds see `:help folds`
-          -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-          -- vim.wo.foldmethod = 'expr'
-
-          -- enables treesitter based indentation
-          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-        end,
-      })
-    end,
-=======
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+    -- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
     opts = {
-      ensure_installed = {
-        'bash',
-        'c',
-        'diff',
-        'html',
-        'lua',
-        'luadoc',
-        'markdown',
-        'markdown_inline',
-        'query',
-        'vim',
-        'vimdoc',
-        'php',
-        'javascript',
-        'css',
-      },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'php', 'javascript', 'css' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -994,7 +937,6 @@ require('lazy').setup({
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
->>>>>>> 2341a4a (My custom changes for php relative line number and working out the kinks)
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
