@@ -171,6 +171,7 @@ do
   -- instead raise a dialog asking if you wish to save the current file(s)
   -- See `:help 'confirm'`
   vim.o.confirm = true
+
 end
 
 -- ============================================================
@@ -979,5 +980,16 @@ do
   -- require 'custom.plugins'
 end
 
+
+-- ============================================================
+-- SECTION 11: @devzdev keymaps 
+-- ============================================================
+do
+  vim.keymap.set('n', '<leader>aa', 'ggVG', { desc = 'Select entire file' })
+  vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", {desc = "Move block down" })
+  vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", {desc = "Move block down" })
+end
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
